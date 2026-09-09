@@ -1,5 +1,7 @@
 package com.ysr.service;
 
+import com.ysr.dto.Info;
+import com.ysr.dto.StuDto;
 import com.ysr.model.Batch;
 import com.ysr.model.Branch;
 import com.ysr.model.Student;
@@ -19,8 +21,9 @@ public class StudentService implements IStudentService {
     }
 
     @Override
-    public String addStudent(Student student) {
-//        student.setRollNo(abc); --> to be added
+    public String addStudent(StuDto studentDto) {
+        Student student = new Student(studentDto.getName(), studentDto.getDob(), studentDto.getGender(),
+                studentDto.getEmail(), studentDto.getPhone(), studentDto.getBatch(), studentDto.getBranch(), null);
         studentRepo.save(student);
         return student.getName() + " is successfully added in batch" + student.getBatch() + " branch " +  student.getBranch();
     }
@@ -42,8 +45,8 @@ public class StudentService implements IStudentService {
     }
 
     @Override
-    public List<Student> getStudentByBatchAndBranch(Batch batch, Branch branch) {
-        return studentRepo.getStudentByBatchAndBranch(batch, branch);
+    public List<Student> getStudentByBatchAndBranch(Info info) {
+        return studentRepo.getStudentByBatchAndBranch(info.getBatch(), info.getBranch());
     }
 
     @Override
