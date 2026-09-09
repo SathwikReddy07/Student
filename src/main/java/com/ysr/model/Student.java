@@ -23,6 +23,7 @@ public class Student {
     private String phone;
     private Batch batch;
     private Branch branch;
+    private String rollNo;
 
     public Student() {}
     public Student(String name, Date dob, Gender gender, String email, String phone, Batch batch, Branch branch) {
@@ -98,11 +99,18 @@ public class Student {
         this.branch = branch;
     }
 
+    public String getRollNo() {
+        return rollNo;
+    }
+    public void setRollNo(String rollNo) {
+        this.rollNo = rollNo;
+    }
+
     @Override
     public String toString() {
         return "Student [id=" + id + ", createdAt=" + createdAt + ", name=" + name
-                + ", dob=" + dob + ", gender=" + gender + ", email=" + email +
-                ", phone=" + phone + ", batch=" + batch + ", branch=" + branch + "]";
+                + ", dob=" + dob + ", gender=" + gender + ", email=" + email + ", phone=" + phone
+                + ", batch=" + batch + ", branch=" + branch + ", rollNo=" + rollNo + "]";
     }
 
 }
