@@ -1,10 +1,14 @@
 package com.ysr.service;
 
 import com.ysr.dto.Info;
+import com.ysr.model.Batch;
+import com.ysr.model.Branch;
 import com.ysr.model.StudentCount;
 import com.ysr.repo.ICountRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CountService implements ICountService{
@@ -18,7 +22,7 @@ public class CountService implements ICountService{
     @Override
     public String addNewBatch(Info info) {
         countRepo.save(new StudentCount(info.getBatch(), info.getBranch(), 0));
-        return "Batch : " + info.getBatch() + " Branch : " + info.getBranch() + " has been added successfully";
+        return "Batch " + info.getBatch() + " Branch " + info.getBranch() + " has been added successfully";
     }
 
     @Override
@@ -36,5 +40,15 @@ public class CountService implements ICountService{
         StudentCount sc = countRepo.findByBatchAndBranch(info.getBatch(), info.getBranch());
         sc.setCount(sc.getCount() + 1);
         countRepo.save(sc);
+    }
+
+    @Override
+    public List<StudentCount> findByBatch(Batch batch) {
+        return countRepo.findByBatch(batch);
+    }
+
+    @Override
+    public List<StudentCount> findByBranch(Branch branch) {
+        return countRepo.findByBranch(branch);
     }
 }

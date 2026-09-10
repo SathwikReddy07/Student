@@ -5,6 +5,8 @@ import com.ysr.model.Batch;
 import com.ysr.model.Branch;
 import com.ysr.model.StudentCount;
 
+import java.util.List;
+
 public interface ICountService {
 
     // Adds new column in the table
@@ -18,6 +20,12 @@ public interface ICountService {
 
     // Increases Student Count
     void addStudent (Info info);
+
+    // Returns the branches and the count of students in particular branch
+    List<StudentCount> findByBatch(Batch batch);
+
+    // Returns the batches and the count of students in particular branch
+    List<StudentCount> findByBranch(Branch branch);
 
 
 }
