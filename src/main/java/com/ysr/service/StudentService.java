@@ -23,7 +23,8 @@ public class StudentService implements IStudentService {
     @Override
     public String addStudent(StuDto studentDto) {
         Student student = new Student(studentDto.getName(), studentDto.getDob(), studentDto.getGender(),
-                studentDto.getEmail(), studentDto.getPhone(), studentDto.getBatch(), studentDto.getBranch(), null);
+                studentDto.getEmail(), studentDto.getPhone(), studentDto.getBatch(), studentDto.getBranch(),
+                new RollNum().rollCreation(new Info(studentDto.getBatch(), studentDto.getBranch())));
         studentRepo.save(student);
         return student.getName() + " is successfully added in batch" + student.getBatch() + " branch " +  student.getBranch();
     }
