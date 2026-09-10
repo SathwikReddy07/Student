@@ -41,7 +41,16 @@ public class RollNum {
         }
         countService.addStudent(info);
         int i = countRepo.findByBatchAndBranch(info.getBatch(), info.getBranch()).getCount();
-        sb.append(i);
+        if (i < 10) {
+            sb.append("00");
+            sb.append(i);
+        }
+        else if (i < 100) {
+            sb.append("0");
+            sb.append(i);
+        }
+        else
+            sb.append(i);
         return sb.toString();
     }
 
