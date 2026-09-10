@@ -17,7 +17,7 @@ public interface ICountService {
     StudentCount findByBatchAndBranch(Info info);
 
     // Increases Student Count
-    String addStudent (Info info);
+    void addStudent (Info info);
 
 
 }

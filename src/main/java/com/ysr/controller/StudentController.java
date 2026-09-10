@@ -43,10 +43,10 @@ public class StudentController {
         return new  ResponseEntity<>(studentService.getStudentByRollNo(rollNo), HttpStatus.OK);
     }
 
-    @GetMapping("/get")
-    public ResponseEntity<List<Student>> getStudentByBatchAndBranch(Info info) {
-        return new  ResponseEntity<>(studentService.getStudentByBatchAndBranch(info), HttpStatus.OK);
-    }
+//    @GetMapping("/get")
+//    public ResponseEntity<List<Student>> getStudentByBatchAndBranch(Info info) {
+//        return new  ResponseEntity<>(studentService.getStudentByBatchAndBranch(info), HttpStatus.OK);
+//    }
 
     @GetMapping("/get/batch/{batch}")
     public ResponseEntity<List<Student>> getStudentByBatch(@PathVariable Batch batch) {

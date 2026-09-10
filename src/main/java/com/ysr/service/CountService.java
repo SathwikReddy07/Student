@@ -32,10 +32,9 @@ public class CountService implements ICountService{
     }
 
     @Override
-    public String addStudent(Info info) {
+    public void addStudent(Info info) {
         StudentCount sc = countRepo.findByBatchAndBranch(info.getBatch(), info.getBranch());
         sc.setCount(sc.getCount() + 1);
         countRepo.save(sc);
-        return "Student added successfully in Batch : " + info.getBatch() + " Branch : " + info.getBranch();
     }
 }

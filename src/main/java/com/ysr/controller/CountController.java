@@ -22,9 +22,4 @@ public class CountController {
         return new ResponseEntity<>(countService.addNewBatch(info), HttpStatus.CREATED);
     }
 
-    @PatchMapping("/student")
-    public ResponseEntity<String> addStudent(@RequestBody Info info) {
-        return new ResponseEntity<>(countService.addStudent(info), HttpStatus.OK);
-    }
-
 }
