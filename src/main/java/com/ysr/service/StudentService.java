@@ -20,11 +20,17 @@ public class StudentService implements IStudentService {
         this.studentRepo = studentRepo;
     }
 
+    private RollNum rollNum;
+    @Autowired
+    public void setRollNum(RollNum rollNum) {
+        this.rollNum = rollNum;
+    }
+
     @Override
     public String addStudent(StuDto studentDto) {
         Student student = new Student(studentDto.getName(), studentDto.getDob(), studentDto.getGender(),
                 studentDto.getEmail(), studentDto.getPhone(), studentDto.getBatch(), studentDto.getBranch(),
-                new RollNum().rollCreation(new Info(studentDto.getBatch(), studentDto.getBranch())));
+                rollNum.rollCreation(new Info(studentDto.getBatch(), studentDto.getBranch())));
         studentRepo.save(student);
         return student.getName() + " is successfully added in batch" + student.getBatch() + " branch " +  student.getBranch();
     }
