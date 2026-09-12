@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 public class Student {
@@ -15,9 +16,9 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @CreationTimestamp
-    private Date createdAt;
+    private LocalDate createdAt;
     private String name;
-    private Date dob;
+    private String dob;
     private Gender gender;
     private String email;
     private String phone;
@@ -26,7 +27,7 @@ public class Student {
     private String rollNo;
 
     public Student() {}
-    public Student(String name, Date dob, Gender gender, String email, String phone, Batch batch, Branch branch, String rollNo) {
+    public Student(String name, String dob, Gender gender, String email, String phone, Batch batch, Branch branch, String rollNo) {
         this.name = name;
         this.dob = dob;
         this.gender = gender;
@@ -44,10 +45,10 @@ public class Student {
         this.id = id;
     }
 
-    public Date getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -58,10 +59,10 @@ public class Student {
         this.name = name;
     }
 
-    public Date getDob() {
+    public String getDob() {
         return dob;
     }
-    public void setDob(Date dob) {
+    public void setDob(String dob) {
         this.dob = dob;
     }
 

@@ -5,11 +5,12 @@ import com.ysr.model.Branch;
 import com.ysr.model.Gender;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class StuDto {
 
     private String name;
-    private Date dob;
+    private String dob;
     private Gender gender;
     private String email;
     private String phone;
@@ -17,7 +18,7 @@ public class StuDto {
     private Branch branch;
 
     public StuDto() {}
-    public StuDto(String name, Date dob, Gender gender, String email, String phone, Batch batch, Branch branch) {
+    public StuDto(String name, String dob, Gender gender, String email, String phone, Batch batch, Branch branch) {
         this.name = name;
         this.dob = dob;
         this.gender = gender;
@@ -34,10 +35,10 @@ public class StuDto {
         this.name = name;
     }
 
-    public Date getDob() {
+    public String getDob() {
         return dob;
     }
-    public void setDob(Date dob) {
+    public void setDob(String dob) {
         this.dob = dob;
     }
 
