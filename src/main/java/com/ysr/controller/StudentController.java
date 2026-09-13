@@ -58,4 +58,9 @@ public class StudentController {
         return new  ResponseEntity<>(studentService.getStudentByBranch(branch), HttpStatus.OK);
     }
 
+    @GetMapping("/get/all")
+    public ResponseEntity<List<Student>> getAll() {
+        return new  ResponseEntity<>(studentService.getAll(), HttpStatus.OK);
+    }
+
 }

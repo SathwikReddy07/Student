@@ -20,5 +20,6 @@ public interface IStudentService {
     List<Student> getStudentByBatchAndBranch (Info info);
     List<Student> getStudentByBatch (Batch batch);
     List<Student> getStudentByBranch(Branch name);
+    List<Student> getAll();
 
 }

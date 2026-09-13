@@ -65,4 +65,9 @@ public class StudentService implements IStudentService {
     public List<Student> getStudentByBranch(Branch branch) {
         return studentRepo.getStudentByBranch(branch);
     }
+
+    @Override
+    public List<Student> getAll() {
+        return studentRepo.findAll();
+    }
 }
