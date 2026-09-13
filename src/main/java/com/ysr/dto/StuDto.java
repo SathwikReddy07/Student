@@ -4,9 +4,6 @@ import com.ysr.model.Batch;
 import com.ysr.model.Branch;
 import com.ysr.model.Gender;
 
-import java.sql.Date;
-import java.time.LocalDate;
-
 public class StuDto {
 
     private String name;

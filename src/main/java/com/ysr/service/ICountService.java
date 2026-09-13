@@ -10,6 +10,7 @@ import java.util.List;
 public interface ICountService {
 
     // Adds new column in the table
+    // All batch and branch combinations are already added in the table.
     String addNewBatch (Info info);
 
     // Returns the data by id
