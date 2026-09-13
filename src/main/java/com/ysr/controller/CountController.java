@@ -45,11 +45,4 @@ public class CountController {
         return ResponseEntity.ok(countService.findByBranch(branch));
     }
 
-    @GetMapping("/load")
-    public void loadData() throws Exception {
-        JobParameters parameters = new JobParametersBuilder()
-                .addLong("time", System.currentTimeMillis()).toJobParameters();
-        jobOperator.start(job, parameters);
-    }
-
 }
